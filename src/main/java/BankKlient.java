@@ -18,7 +18,12 @@ public class BankKlient {
     }
 
     public Optional<Accound> getAccountForUser(User user) {
-        return null;
+        for (Accound konto : bank.getKonta()) {
+            if (user.equals(konto.getUrzytownik())) {
+                return Optional.of(konto);
+            }
+        }
+        return Optional.empty();
     }
 
     public boolean checkBankAndAccountCorrelation(Accound accound) {
